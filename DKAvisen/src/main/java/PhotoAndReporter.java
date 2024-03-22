@@ -4,8 +4,8 @@ public class PhotoAndReporter {
 	private final Reporter reporter;
 	private final Photo photo;
 
-	public PhotoAndReporter(String title, Date date, Integer cpr, String firstName, String lastName, String streetName, Integer civicNumber, Integer zipCode, String country) {
-		reporter = new Reporter(cpr, firstName, lastName, streetName, civicNumber, zipCode, country);
+	public PhotoAndReporter(String title, Date date, Integer cpr, String firstName, String middleName, String lastName, String streetName, Integer civicNumber, Integer zipCode, String workPhoneNum, String privatePhoneNum, String Email) {
+		reporter = new Reporter(cpr, firstName, lastName, streetName, civicNumber, zipCode, );
 		photo = new Photo(title, date);
 	}
 
