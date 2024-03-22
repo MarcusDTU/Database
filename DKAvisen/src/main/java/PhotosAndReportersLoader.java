@@ -52,13 +52,16 @@ public class PhotosAndReportersLoader {
 						} catch (ParseException e) {
 							throw new NumberFormatException("Invalid value (" + values.get(1) + ") for date at line " + lineNbr);
 						}
-						Integer cpr = Integer.valueOf(values.get(2));
+						String cpr = String.valueOf(values.get(2));
 						String firstName = values.get(3);
-						String lastName = values.get(4);
-						String streetName = values.get(5);
-						Integer civicNumber = Integer.valueOf(values.get(6));
-						Integer zipCode  = Integer.valueOf(values.get(7));
-						String country = values.get(8);
+						String middleName = values.get(4);
+						String lastName = values.get(5);
+						String streetName = values.get(6);
+						Integer civicNumber = Integer.valueOf(values.get(7));
+						Integer zipCode  = Integer.valueOf(values.get(8));
+						String workPhoneNum = values.get(9);
+						String privatePhoneNum = values.get(10);
+						String email = values.get(11);
 						PhotoAndReporter far = new PhotoAndReporter(title, date, cpr, firstName, middleName, lastName, streetName, civicNumber, zipCode, workPhoneNum, privatePhoneNum, email);
 						farList.add(far);
 					} else
