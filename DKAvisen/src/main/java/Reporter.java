@@ -7,9 +7,13 @@ public class Reporter {
     private final String streetName;
     private final Integer civicNumber;
     private final Integer zipCode;
-    private final String country;
+    private final String workPhoneNum;
 
-    public Reporter(String cpr, String firstName, String middleName, String lastName, String streetName, Integer civicNumber, Integer zipCode) {
+    private final String privatePhoneNum;
+
+    private final String email;
+
+    public Reporter(String cpr, String firstName, String middleName, String lastName, String streetName, Integer civicNumber, Integer zipCode, String workPhoneNum, String privatePhoneNum, String email) {
         this.cpr = cpr;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -17,6 +21,9 @@ public class Reporter {
         this.streetName = streetName;
         this.civicNumber = civicNumber;
         this.zipCode = zipCode;
+        this.workPhoneNum = workPhoneNum;
+        this.privatePhoneNum = privatePhoneNum;
+        this.email = email;
     }
 
     public String getCPR() { return cpr; }
@@ -43,8 +50,16 @@ public class Reporter {
 
     public Integer getZIPCode() { return zipCode; }
 
-    public String getCountry() {
-        return country;
+    public String getWorkPhoneNum() {
+        return workPhoneNum;
+    }
+
+    public String getPrivatePhoneNum() {
+        return privatePhoneNum;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
 
@@ -52,7 +67,7 @@ public class Reporter {
     public String toString() {
         final String D = ";";
 
-        return getCPR() + D + getFirstName() + D + getLastName() + D + getStreetName() + D + getCivicNumber() + D + getZIPCode() + D + getCountry();
+        return getCPR() + D + getFirstName() + D + getMiddleName() + D + getLastName() + D + getStreetName() + D + getCivicNumber() + D + getZIPCode() + D + getWorkPhoneNum() + D + getPrivatePhoneNum() + D + getEmail();
     }
 
 }
