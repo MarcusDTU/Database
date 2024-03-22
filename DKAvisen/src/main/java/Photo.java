@@ -5,10 +5,10 @@ public class Photo {
     private final Date date;
     private final String cprNo;
 
-    public Photo(String title, Date date, String cprNo) {
+    public Photo(String title, Date date, String cpr) {
         this.title = title;
         this.date = date;
-        this.cprNo = cprNo;
+        this.cprNo = cpr;
     }
 
     public String getTitle() {
@@ -25,7 +25,7 @@ public class Photo {
         final String D = ";";
         final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
 
-        return getTitle() +D + dateFormatter.format(getDate()) + getCprNo();
+        return getTitle() +D + dateFormatter.format(getDate()) + D + getCprNo();
     }
 
 }
