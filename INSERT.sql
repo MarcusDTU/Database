@@ -13,32 +13,32 @@ INSERT Topic VALUES
 
 #3
 INSERT Journalist VALUES
-(012345-1111,'Hans','Hanse','Hansen','Avej',1,'Roskilde','4000','12345678' ,'23456789','Hans@DKA.dk'),
-(123456-2222,'Jens','Jense','Jensen','Bvej',2,'Odense','5000','34567890' ,'45678901','Jens@DKA.dk'),
-(234567-3333,'Niels','Nielse','Nielsen','Cvej',3,'Køge','4600','56789012' ,'67890123','Niels@DKA.dk'),
-(345678-4444,'Mike','Micki','Hansen','Dvej',4,'Herfølge','4681','78901234' ,'89012345','Micki@DKA.dk'),
-(456789-5555,'Poul','Poule','Poulsen','Evej',5,'Vedbæk','2950','90123456' ,'01234567','Poul@DKA.dk'),
-(456654-6666,'Povl','Povle','Povlsen','Fvej',6,'Solrød','2680','52486523' ,'52789301','Povl@DKA.dk'),
-(157896-7777,'Anna','Annese','Annesen','Gvej',7,'Trørød','2950','98745102' ,'86358746','Anna@DKA.dk'),
-(123456-8888,'Peter','Petersen','Peters','ABCvej',12,'Odense','5000', '98765432', '12367678','Peter@DKA.dk'),
-(987654-9999,'Maria','Mikkelsen','Mikkel','XYZgade',25,'Køge','4600', '12345201','95754321', 'Maria@DKA.dk'),
-(429689-0000,'Anders','Andersen','Anders','EFGstræde',8,'Lilleby','9012' ,'23456789','98765432','Anders@DKA.dk'),
-(345678-1122, 'Louise', 'Larsen', 'Lars', 'HIJvej',19,'Storbyen','3456','34567890' ,'23456789','Louise@DKA.dk'),
-(234567-3344,'Michael','Madsen','Mads','KLMgade',30,'Udmarken','6789', '45678901','34567890','Michael@DKA.dk'),
-(567890-5566,'Sofie','Sørensen','Søren','NOPvej',5,'Bakkerne','0123', '56789012','45678901','Sofie@DKA.dk'),
-(678901-7788,'Jonas','Jensen','Jens','QRSgade',17,'Kystbyen','3456', '67890123','56789012','Jonas@DKA.dk'),
-(789012-9900,'Mette','Mortensen','Morten','TUVvej',22,'Strandby','7890', '78901234','67890123','Mette@DKA.dk'),
-(890123-1234, 'Lars','Lassen','Lasse','WXYgade',3,'Ødeby','8901', '89012345','78901234','Lars@DKA.dk'),
-(901234-5678,'Camilla','Christensen','Christian','ZABvej',14,'Højby','2345', '90123456','89012345','Camilla@DKA.dk');
+('012345-1111','Hans','Hanse','Hansen','Avej',1,'Roskilde','4000','12345678' ,'23456789','Hans@DKA.dk'),
+('123456-2222','Jens','Jense','Jensen','Bvej',2,'Odense','5000','34567890' ,'45678901','Jens@DKA.dk'),
+('234567-3333','Niels','Nielse','Nielsen','Cvej',3,'Køge','4600','56789012' ,'67890123','Niels@DKA.dk'),
+('345678-4444','Mike','Micki','Hansen','Dvej',4,'Herfølge','4681','78901234' ,'89012345','Micki@DKA.dk'),
+('456789-5555','Poul','Poule','Poulsen','Evej',5,'Vedbæk','2950','90123456' ,'01234567','Poul@DKA.dk'),
+('456654-6666','Povl','Povle','Povlsen','Fvej',6,'Solrød','2680','52486523' ,'52789301','Povl@DKA.dk'),
+('157896-7777','Anna','Annese','Annesen','Gvej',7,'Trørød','2950','98745102' ,'86358746','Anna@DKA.dk'),
+('123456-8888','Peter','Petersen','Peters','ABCvej',12,'Odense','5000', '98765432', '12367678','Peter@DKA.dk'),
+('987654-9999','Maria','Mikkelsen','Mikkel','XYZgade',25,'Køge','4600', '12345201','95754321', 'Maria@DKA.dk'),
+('429689-0000','Anders','Andersen','Anders','EFGstræde',8,'Lilleby','9012' ,'23456789','98765432','Anders@DKA.dk'),
+('345678-1122', 'Louise', 'Larsen', 'Lars', 'HIJvej',19,'Storbyen','3456','34567890' ,'23456789','Louise@DKA.dk'),
+('234567-3344','Michael','Madsen','Mads','KLMgade',30,'Udmarken','6789', '45678901','34567890','Michael@DKA.dk'),
+('567890-5566','Sofie','Sørensen','Søren','NOPvej',5,'Bakkerne','0123', '56789012','45678901','Sofie@DKA.dk'),
+('678901-7788','Jonas','Jensen','Jens','QRSgade',17,'Kystbyen','3456', '67890123','56789012','Jonas@DKA.dk'),
+('789012-9900','Mette','Mortensen','Morten','TUVvej',22,'Strandby','7890', '78901234','67890123','Mette@DKA.dk'),
+('890123-1234', 'Lars','Lassen','Lasse','WXYgade',3,'Ødeby','8901', '89012345','78901234','Lars@DKA.dk'),
+('901234-5678','Camilla','Christensen','Christian','ZABvej',14,'Højby','2345', '90123456','89012345','Camilla@DKA.dk');
 
 
 #4
 INSERT Photo VALUES
-('Footbal','2024-1-13',901234-5678),
-('Comedy','2024-1-17',890123-1234),
-('Mor Mette','2024-2-13',789012-9900),
-('Dead person','2024-3-9',678901-7788),
-('Iphone 16','2024-4-1',234567-3344);
+('Footbal','2024-1-13','901234-5678'),
+('Comedy','2024-1-17','890123-1234'),
+('Mor Mette','2024-2-13','789012-9900'),
+('Dead person','2024-3-9','678901-7788'),
+('Iphone 16','2024-4-1','234567-3344');
 
 #5
 INSERT Edition VALUES
@@ -78,24 +78,24 @@ INSERT Includes VALUES
 
 #8
 INSERT Editor VALUES
-('DKAvisen',1,456789-5555),
-('DKAvisen',2,234567-3333),
-('DKAvisen',3,012345-1111),
-('DKAvisen',4,234567-3344),
-('DKAvisen',5,987654-9999);
+('DKAvisen',1,'456789-5555'),
+('DKAvisen',2,'234567-3333'),
+('DKAvisen',3,'012345-1111'),
+('DKAvisen',4,'234567-3344'),
+('DKAvisen',5,'987654-9999');
 
 #9
 INSERT Writer VALUES
-(012345-1111,'Super bowl winner','DKAvisen',1,'writer'),
-(123456-2222,'New tv show has 0 viewers','DKAvisen',2,'writer'),
-(234567-3333,'Ye wins the American election','DKAvisen',3,'editor'),
-(345678-4444,'Ye killed','DKAvisen',4,'writer'),
-(456789-5555,'The new Iphone 16','DKAvisen',5,'editor'),
-(456654-6666,'Tourists flock to Denmark at Easter','DKAvisen',3,'writer'),
-(157896-7777,'The earth is apparently flat','DKAvisen',1,'writer'),
-(123456-8888,'Global warming solved!','DKAvisen',1,'writer'),
-(987654-9999,'Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5,'writer'),
-(345678-1122,'Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'editor'),
-(234567-3344,'Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'writer');
+('012345-1111','Super bowl winner','DKAvisen',1,'writer'),
+('123456-2222','New tv show has 0 viewers','DKAvisen',2,'writer'),
+('234567-3333','Ye wins the American election','DKAvisen',3,'editor'),
+('345678-4444','Ye killed','DKAvisen',4,'writer'),
+('456789-5555','The new Iphone 16','DKAvisen',5,'editor'),
+('456654-6666','Tourists flock to Denmark at Easter','DKAvisen',3,'writer'),
+('157896-7777','The earth is apparently flat','DKAvisen',1,'writer'),
+('123456-8888','Global warming solved!','DKAvisen',1,'writer'),
+('987654-9999','Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5,'writer'),
+('345678-1122','Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'editor'),
+('234567-3344','Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'writer');
 
 
