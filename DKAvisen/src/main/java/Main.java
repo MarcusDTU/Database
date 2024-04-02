@@ -17,7 +17,6 @@ public class Main {
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
             PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
-            //List<PhotoAndReporter> photosAndReporters = loader.loadPhotosAndReporters(args[0]);
             List<PhotoAndReporter> photosAndReporters = loader.loadPhotosAndReporters(args[0]);
             for(PhotoAndReporter photoAndReporter: photosAndReporters){
                 PreparedStatement statementReporter = connection.prepareStatement("Insert Journalist VALUES (?,?,?,?,?,?,NULL,?,?,?,?)");
