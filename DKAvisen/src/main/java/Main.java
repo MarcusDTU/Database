@@ -29,7 +29,7 @@ public class Main {
                 statementReporter.setString(5, photoAndReporter.getReporter().getStreetName());
                 statementReporter.setInt(6, photoAndReporter.getReporter().getCivicNumber());
                 statementReporter.setString(7, photoAndReporter.getReporter().getCity());
-                statementReporter.setString(8, photoAndReporter.getReporter().getZIPCode().toString());
+                statementReporter.setString(8, photoAndReporter.getReporter().getZIPCode());
                 statementReporter.setString(9,photoAndReporter.getReporter().getWorkPhoneNum());
                 statementReporter.setString(10,photoAndReporter.getReporter().getPrivatePhoneNum());
                 statementReporter.setString(11,photoAndReporter.getReporter().getEmail());
