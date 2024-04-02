@@ -1,5 +1,6 @@
 import java.sql.*;
-import java.util.Scanner;
+import java.util.List;
+
 
 public class Main {
 
@@ -14,35 +15,40 @@ public class Main {
 
         String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding=" + cp;
         try {
-            Scanner scanner = new Scanner(System.in, "CP850"); //Western Europe Console CodePage
-            System.out.println("Type sql manipulation: ");
-            String sqlManipulation = scanner.nextLine();
-            scanner.close();
-            //Get a connection.
             Connection connection = DriverManager.getConnection(url, username, password);
-            // Check if the data already exists
-            String checkIfExistsQuery = "SELECT COUNT(*) FROM Journalist WHERE"; //CPR = input
-            Statement checkStatement = connection.createStatement();
-            ResultSet resultSet = checkStatement.executeQuery(checkIfExistsQuery);
+            PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
+            //List<PhotoAndReporter> photosAndReporters = loader.loadPhotosAndReporters(args[0]);
+            List<PhotoAndReporter> photosAndReporters = loader.loadPhotosAndReporters(args[0]);
+            for(PhotoAndReporter photoAndReporter: photosAndReporters){
+                PreparedStatement statementReporter = connection.prepareStatement("Insert Journalist VALUES (?,?,?,?,?,?,NULL,?,?,?,?)");
+                statementReporter.setString(1, photoAndReporter.getReporter().getCPR());
+                statementReporter.setString(2, photoAndReporter.getReporter().getFirstName());
+                statementReporter.setString(3, photoAndReporter.getReporter().getMiddleName());
+                statementReporter.setString(4, photoAndReporter.getReporter().getLastName());
+                statementReporter.setString(5, photoAndReporter.getReporter().getStreetName());
+                statementReporter.setInt(6, photoAndReporter.getReporter().getCivicNumber());
+                statementReporter.setString(7, photoAndReporter.getReporter().getZIPCode().toString());
+                statementReporter.setString(8,photoAndReporter.getReporter().getWorkPhoneNum());
+                statementReporter.setString(9,photoAndReporter.getReporter().getPrivatePhoneNum());
+                statementReporter.setString(10,photoAndReporter.getReporter().getEmail());
+                PreparedStatement statementPhoto = connection.prepareStatement("Insert Photo VALUES (?,?,?)");
+                statementPhoto.setString(1, photoAndReporter.getPhoto().getTitle());
+                statementPhoto.setDate(2, new java.sql.Date(photoAndReporter.getPhoto().getDate().getTime()));
+                statementPhoto.setString(3,photoAndReporter.getPhoto().getCprNo());
+                
+                statementReporter.execute();
+                statementPhoto.execute();
 
-            // If count is zero, then the data doesn't exist and you can proceed with insertion
-            if (resultSet.next() && resultSet.getInt(1) == 0) {
-                // Data doesn't exist, proceed with insertion
-                Statement statement = connection.createStatement();
-                statement.executeUpdate(sqlManipulation);
-                System.out.println("Data inserted successfully.");
-            } else {
-                System.out.println("Data already exists.");
+                System.out.println("YESS 1");
+
             }
-
-            // Close resources
-            resultSet.close();
-            checkStatement.close();
             connection.close();
+            
         }
         catch (Exception e){
             e.printStackTrace();
         }
+ 
     }
 
 
