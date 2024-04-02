@@ -6,20 +6,23 @@ public class Reporter {
     private final String lastName;
     private final String streetName;
     private final Integer civicNumber;
-    private final Integer zipCode;
+
+    private final String city;
+    private final String zipCode;
     private final String workPhoneNum;
 
     private final String privatePhoneNum;
 
     private final String email;
 
-    public Reporter(String cpr, String firstName, String middleName, String lastName, String streetName, Integer civicNumber, Integer zipCode, String workPhoneNum, String privatePhoneNum, String email) {
+    public Reporter(String cpr, String firstName, String middleName, String lastName, String streetName, Integer civicNumber, String city, String zipCode, String workPhoneNum, String privatePhoneNum, String email) {
         this.cpr = cpr;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.streetName = streetName;
         this.civicNumber = civicNumber;
+        this.city = city;
         this.zipCode = zipCode;
         this.workPhoneNum = workPhoneNum;
         this.privatePhoneNum = privatePhoneNum;
@@ -48,7 +51,9 @@ public class Reporter {
         return civicNumber;
     }
 
-    public Integer getZIPCode() { return zipCode; }
+    public String getCity() {return city;}
+
+    public String getZIPCode() { return zipCode; }
 
     public String getWorkPhoneNum() {
         return workPhoneNum;
