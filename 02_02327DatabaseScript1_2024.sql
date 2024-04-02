@@ -165,17 +165,18 @@ INSERT Article VALUES
 ('Ye wins the American election','DKAvisen',3, 'Ye, former knowns as Kanye west won the American election, with 99% of the votes',78952,'Tech'),
 ('Ye killed','DKAvisen',4, 'After winning the American election, Ye was found dead,wearing a make America great again cap',51358,'Tech'),
 ('The new Iphone 16','DKAvisen',5, 'Apple launched the new Iphone 16, yesterday with some cool new tech in it',6585,'Tech'),
-('World Health Organization Declares Global Pandemic','DKAvisen',1, 'The World Health Organization has officially declared the outbreak of a new virus as a global pandemic.',65281,'Tech'),
-('Scientists Discover New Species in Amazon Rainforest','DKAvisen',2,'A team of scientists has discovered a previously unknown species of amphibian in the depths of the Amazon Rainforest',22222,'Tech'),
-('SpaceX Successfully Lands Crewed Mission on Mars','DKAvisen',3,'SpaceX has achieved a historic milestone by successfully landing a crewed mission on the surface of Mars.',35236,'Tech'),
-('Government Imposes Strict Measures to Combat Air Pollution','DKAvisen',4,'In response to alarming levels of air pollution, the government has imposed strict measures including vehicle restrictions and industrial regulations to combat the environmental crisis',41548,'Tech'),
-('Breakthrough in Cancer Treatment Research','DKAvisen',5,'Researchers have announced a major breakthrough in cancer treatment research, unveiling a promising new therapy that targets specific cancer cells while minimizing side effects',55123,'Tech'),
-('Tourists flock to Denmark at Easter','DKAvisen',3,'New figures from Hotels.com and Momondo predict that Denmark will receive significantly more international guests over Easter 2024 than last year.' , 43254,'Tech'),
-('The earth is apparently flat','DKAvisen',1, 'Scientists have found that earth is flat but also has a hole in the middle like a donut.', 52341, 'Tech'),
-('Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'Former US president understood to have discussed AI and other subjects with PM on informal courtesy visit', 65456,'Tech'),
-('Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'Getty Images flags second royal photo days after storm over image of Princess of Wales' , 34532,'Tech'),
-('Global warming solved!','DKAvisen',1, 'Global warming has been solved with this new machine' , 23456,'Tech'),
-('Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5, 'Libertarian faction of Conservatives expected to stage a rebellion but measure has widespread support', 76854,'Tech');
+('World Health Organization Declares Global Pandemic','DKAvisen',1, 'The World Health Organization has officially declared the outbreak of a new virus as a global pandemic.',65281,'Entertainment'),
+('Scientists Discover New Species in Amazon Rainforest','DKAvisen',2,'A team of scientists has discovered a previously unknown species of amphibian in the depths of the Amazon Rainforest',22222,'Entertainment'),
+('SpaceX Successfully Lands Crewed Mission on Mars','DKAvisen',3,'SpaceX has achieved a historic milestone by successfully landing a crewed mission on the surface of Mars.',35236,'Entertainment'),
+('Government Imposes Strict Measures to Combat Air Pollution','DKAvisen',4,'In response to alarming levels of air pollution, the government has imposed strict measures including vehicle restrictions and industrial regulations to combat the environmental crisis',41548,'Politics'),
+('Breakthrough in Cancer Treatment Research','DKAvisen',5,'Researchers have announced a major breakthrough in cancer treatment research, unveiling a promising new therapy that targets specific cancer cells while minimizing side effects',55123,'Politics'),
+('Tourists flock to Denmark at Easter','DKAvisen',3,'New figures from Hotels.com and Momondo predict that Denmark will receive significantly more international guests over Easter 2024 than last year.' , 43254,'Politics'),
+('The earth is apparently flat','DKAvisen',1, 'Scientists have found that earth is flat but also has a hole in the middle like a donut.', 52341, 'Crime'),
+('Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'Former US president understood to have discussed AI and other subjects with PM on informal courtesy visit', 65456,'Crime'),
+('Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'Getty Images flags second royal photo days after storm over image of Princess of Wales' , 34532,'Sport'),
+('Global warming solved!','DKAvisen',1, 'Global warming has been solved with this new machine' , 23456,'Sport'),
+('Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5, 'Libertarian faction of Conservatives expected to stage a rebellion but measure has widespread support', 76854,'Sport'),
+('Iphone 16 was a great phone','DKAvisen',2, 'iphone 16 had very nice features',15351,'Tech');
 
 
 
@@ -184,7 +185,9 @@ INSERT Includes VALUES
 ('Super bowl winner','DKAvisen',1,'Footbal'),
 ('New tv show has 0 viewers','DKAvisen',2,'Footbal'),
 ('Ye killed','DKAvisen',4,'Dead person'),
-('The new Iphone 16','DKAvisen',5,'Iphone 16');
+('The new Iphone 16','DKAvisen',5,'Iphone 16'),
+('Iphone 16 was a great phone','DKAvisen',2,'Iphone 16');
+
 
 #8
 INSERT Editor VALUES
@@ -206,8 +209,8 @@ INSERT Writer VALUES
 ('123456-8888','Global warming solved!','DKAvisen',1,'writer'),
 ('987654-9999','Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5,'writer'),
 ('345678-1122','Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'editor'),
-('234567-3344','Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'writer');
-
+('234567-3344','Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'writer'),
+('234567-3344','Iphone 16 was a great phone','DKAvisen',2,'writer');
 
 
 
