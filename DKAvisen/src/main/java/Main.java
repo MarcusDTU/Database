@@ -35,12 +35,8 @@ public class Main {
                 statementPhoto.setString(1, photoAndReporter.getPhoto().getTitle());
                 statementPhoto.setDate(2, new java.sql.Date(photoAndReporter.getPhoto().getDate().getTime()));
                 statementPhoto.setString(3,photoAndReporter.getPhoto().getCprNo());
-                
                 statementReporter.execute();
                 statementPhoto.execute();
-
-                System.out.println("YESS 1");
-
             }
             connection.close();
             
