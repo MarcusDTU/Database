@@ -20,9 +20,24 @@ public class Main {
             scanner.close();
             //Get a connection.
             Connection connection = DriverManager.getConnection(url, username, password);
-            //Create and execute Update.
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(sqlManipulation);
+            // Check if the data already exists
+            String checkIfExistsQuery = "SELECT COUNT(*) FROM Journalist WHERE"; //CPR = input
+            Statement checkStatement = connection.createStatement();
+            ResultSet resultSet = checkStatement.executeQuery(checkIfExistsQuery);
+
+            // If count is zero, then the data doesn't exist and you can proceed with insertion
+            if (resultSet.next() && resultSet.getInt(1) == 0) {
+                // Data doesn't exist, proceed with insertion
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(sqlManipulation);
+                System.out.println("Data inserted successfully.");
+            } else {
+                System.out.println("Data already exists.");
+            }
+
+            // Close resources
+            resultSet.close();
+            checkStatement.close();
             connection.close();
         }
         catch (Exception e){
