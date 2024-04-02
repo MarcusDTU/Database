@@ -179,6 +179,7 @@ INSERT Article VALUES
 ('Iphone 16 was a great phone','DKAvisen',2, 'iphone 16 had very nice features',15351,'Tech');
 
 
+
 #7 
 INSERT Includes VALUES
 ('Super bowl winner','DKAvisen',1,'Footbal'),
@@ -186,6 +187,7 @@ INSERT Includes VALUES
 ('Ye killed','DKAvisen',4,'Dead person'),
 ('The new Iphone 16','DKAvisen',5,'Iphone 16'),
 ('Iphone 16 was a great phone','DKAvisen',2,'Iphone 16');
+
 
 #8
 INSERT Editor VALUES
@@ -209,6 +211,7 @@ INSERT Writer VALUES
 ('345678-1122','Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'editor'),
 ('234567-3344','Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'writer'),
 ('234567-3344','Iphone 16 was a great phone','DKAvisen',2,'writer');
+
 
 
 
