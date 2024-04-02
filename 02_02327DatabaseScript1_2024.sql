@@ -175,8 +175,8 @@ INSERT Article VALUES
 ('Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'Former US president understood to have discussed AI and other subjects with PM on informal courtesy visit', 65456,'Crime'),
 ('Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'Getty Images flags second royal photo days after storm over image of Princess of Wales' , 34532,'Sport'),
 ('Global warming solved!','DKAvisen',1, 'Global warming has been solved with this new machine' , 23456,'Sport'),
-('Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5, 'Libertarian faction of Conservatives expected to stage a rebellion but measure has widespread support', 76854,'Sport');
-
+('Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5, 'Libertarian faction of Conservatives expected to stage a rebellion but measure has widespread support', 76854,'Sport'),
+('Iphone 16 was a great phone','DKAvisen',2, 'iphone 16 had very nice features',15351,'Tech');
 
 
 #7 
@@ -184,7 +184,8 @@ INSERT Includes VALUES
 ('Super bowl winner','DKAvisen',1,'Footbal'),
 ('New tv show has 0 viewers','DKAvisen',2,'Footbal'),
 ('Ye killed','DKAvisen',4,'Dead person'),
-('The new Iphone 16','DKAvisen',5,'Iphone 16');
+('The new Iphone 16','DKAvisen',5,'Iphone 16'),
+('Iphone 16 was a great phone','DKAvisen',2,'Iphone 16');
 
 #8
 INSERT Editor VALUES
@@ -206,9 +207,8 @@ INSERT Writer VALUES
 ('123456-8888','Global warming solved!','DKAvisen',1,'writer'),
 ('987654-9999','Sunak braces for backlash as smoking ban bill to be introduced in Commons','DKAvisen',5,'writer'),
 ('345678-1122','Barack Obama drops in on Rishi Sunak on London trip','DKAvisen',4,'editor'),
-('234567-3344','Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'writer');
-
-
+('234567-3344','Photo of Queen Elizabeth II and family was enhanced at source, agency says','DKAvisen',2,'writer'),
+('234567-3344','Iphone 16 was a great phone','DKAvisen',2,'writer');
 
 
 
