@@ -21,7 +21,7 @@ public class PhotosAndReportersLoader {
 
 	public static final String SEMICOLON_DELIMITER = ";";
 	public static final String COMMA_DELIMITER = ",";
-	private static final int NUMBER_OF_FIELDS_EXPECTED = 12;
+	private static final int NUMBER_OF_FIELDS_EXPECTED = 13;
 	private final String delimiter = SEMICOLON_DELIMITER;
 	SimpleDateFormat dateParser = new SimpleDateFormat("yyyyMMdd");
 
@@ -58,11 +58,12 @@ public class PhotosAndReportersLoader {
 						String lastName = values.get(5);
 						String streetName = values.get(6);
 						Integer civicNumber = Integer.valueOf(values.get(7));
-						Integer zipCode  = Integer.valueOf(values.get(8));
-						String workPhoneNum = values.get(9);
-						String privatePhoneNum = values.get(10);
-						String email = values.get(11);
-						PhotoAndReporter far = new PhotoAndReporter(title, date, cpr, firstName, middleName, lastName, streetName, civicNumber, zipCode, workPhoneNum, privatePhoneNum, email);
+						String city = values.get(8);
+						String zipCode  = values.get(9);
+						String workPhoneNum = values.get(10);
+						String privatePhoneNum = values.get(11);
+						String email = values.get(12);
+						PhotoAndReporter far = new PhotoAndReporter(title, date, cpr, firstName, middleName, lastName, streetName, civicNumber, city, zipCode, workPhoneNum, privatePhoneNum, email);
 						farList.add(far);
 					} else
 						throw new IOException("Invalid number of values on line " +lineNbr +". expected " +NUMBER_OF_FIELDS_EXPECTED +" values, found " +values.size());
