@@ -15,8 +15,10 @@ WHERE Email LIKE '%@DKA.dk';
 
 #4
 DELETE FROM Includes 
-WHERE Photo_Title = 'Footbal';
+WHERE Photo_Title = 'Football';
 
+DELETE FROM Photo
+WHERE Photo_Title = 'Football';
 
 #Queries
 #1
