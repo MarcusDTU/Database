@@ -43,7 +43,7 @@ public class Main {
             PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
             List<PhotoAndReporter> photosAndReporters = loader.loadPhotosAndReporters(args[0]);
             String duplicatePrimaryKey = "The following rows contained duplicate primary keys: ";
-            Boolean duplicate = false; //Indicates if duplicate primary key is contained within the .csv
+            boolean duplicate = false; //Indicates if duplicate primary key is contained within the .csv
             int index = 0; //Used to track rows within the .csv. We use index 0.
             for(PhotoAndReporter photoAndReporter: photosAndReporters){
                 //Check if the reporter (journalist) already exists before inserting it into Journalist.
