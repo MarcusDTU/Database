@@ -18,7 +18,7 @@ public class Main {
         String username = "root";       //username for connection
         String password = "mypassword"; //Password for username
 
-        if (args.length == 2) {
+        if (args.length >= 2) {
             //Custom connection mode
             if (args[1].equals("Custom") || args[1].equals("custom")) {
                 Scanner scanner = new Scanner(System.in);
