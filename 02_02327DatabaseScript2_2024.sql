@@ -1,3 +1,4 @@
+USE DKAvisen;
 #Modifications
 #1
 INSERT Journalist (CPR_No, First_Name, Middle_Name, Last_Name, Street, Civic_No, City, ZIP_Code, WorkPhone_No, PrivatePhone_No, Email) 
@@ -137,7 +138,5 @@ END; //
 DELIMITER ;
 
 #Testing Triggers
-USE DKAvisen;
-
 INSERT INTO Article (Article_Title, Newspaper_Title, Edition_Number, Text, Topic)
 VALUES ('The future of renewable energy', 'DKAvisen', 1, 'An in-depth look at the advancements in renewable energy and its impact on the global energy market.', 'Tech');
