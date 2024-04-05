@@ -1,10 +1,15 @@
 import java.sql.*;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Main {
 
     public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Program argument not set. Please ensure that the relative path to the .csv file is set!");
+            return;
+        }
         String host = "localhost";      //Host is localhost (127.0.0.1)
         String port = "3306";           //MariaDB listens to port 3306 by default
         String database = "DKAvisen";   //Name of our database
@@ -12,6 +17,23 @@ public class Main {
         //Set username and password
         String username = "root";       //username for connection
         String password = "mypassword"; //Password for username
+
+        if (args.length == 2) {
+            if (args[1].equals("Custom") || args[1].equals("custom")) {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Custom connection mode enabled.");
+                System.out.println("Please enter host: ");
+                host = scanner.nextLine();
+                System.out.println("Please enter port number: ");
+                port = scanner.nextLine();
+                System.out.println("This program is designed to interact with the database DKAvisen. Please enter database name: ");
+                database = scanner.nextLine();
+                System.out.println("Please enter database username: ");
+                username = scanner.nextLine();
+                System.out.println("Please enter database password: ");
+                password = scanner.nextLine();
+            }
+        }
 
         String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding=" + cp;
         try {
