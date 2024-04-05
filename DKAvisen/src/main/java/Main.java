@@ -19,6 +19,7 @@ public class Main {
         String password = "mypassword"; //Password for username
 
         if (args.length == 2) {
+            //Custom connection mode
             if (args[1].equals("Custom") || args[1].equals("custom")) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Custom connection mode enabled.");
@@ -32,6 +33,7 @@ public class Main {
                 username = scanner.nextLine();
                 System.out.println("Please enter database password: ");
                 password = scanner.nextLine();
+                scanner.close();
             }
         }
 
@@ -41,9 +43,10 @@ public class Main {
             PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
             List<PhotoAndReporter> photosAndReporters = loader.loadPhotosAndReporters(args[0]);
             String duplicatePrimaryKey = "The following rows contained duplicate primary keys: ";
-            Boolean duplicate = false;
-            int index = 0;
+            Boolean duplicate = false; //Indicates if duplicate primary key is contained within the .csv
+            int index = 0; //Used to track rows within the .csv. We use index 0.
             for(PhotoAndReporter photoAndReporter: photosAndReporters){
+                //Check if the reporter (journalist) already exists before inserting it into Journalist.
                 if(reporterExists(photoAndReporter.getReporter().getCPR(), connection)) {
                     //Prepared statement for journalist
                     PreparedStatement statementReporter = connection.prepareStatement("Insert Journalist VALUES (?,?,?,?,?,?,?,?,?,?,?)");
@@ -58,26 +61,28 @@ public class Main {
                     statementReporter.setString(9, photoAndReporter.getReporter().getWorkPhoneNum());
                     statementReporter.setString(10, photoAndReporter.getReporter().getPrivatePhoneNum());
                     statementReporter.setString(11, photoAndReporter.getReporter().getEmail());
-                    statementReporter.execute();
+                    statementReporter.execute(); //Insert journalist into Journalist.
                 }
                 else {
-                    duplicate = true;
-                    duplicatePrimaryKey = duplicatePrimaryKey + "\nRow " + index + " journalist exists";
+                    duplicate = true; //Enable duplicate mode.
+                    duplicatePrimaryKey = duplicatePrimaryKey + "\nRow " + index + " journalist exists"; //Output at the end of the program, if duplicate mode is enabled.
                 }
+                //Check if photo title already exists before inserting it into photo.
                 if (photoExists(photoAndReporter.getPhoto().getTitle(), connection)) {
                     //Prepared statement for photo
                     PreparedStatement statementPhoto = connection.prepareStatement("Insert Photo VALUES (?,?,?)");
                     statementPhoto.setString(1, photoAndReporter.getPhoto().getTitle());
                     statementPhoto.setDate(2, new java.sql.Date(photoAndReporter.getPhoto().getDate().getTime()));
                     statementPhoto.setString(3, photoAndReporter.getPhoto().getCprNo());
-                    statementPhoto.execute();
+                    statementPhoto.execute(); //Insert photo into Photo.
                 }
                 else {
-                    duplicate = true;
-                    duplicatePrimaryKey = duplicatePrimaryKey + "\nRow " + index + " photo title exists";
+                    duplicate = true; //Enable duplicate mode.
+                    duplicatePrimaryKey = duplicatePrimaryKey + "\nRow " + index + " photo title exists"; //Output at the end of the program, if duplicate mode is enabled.
                 }
-                index++;
+                index++; //Row index from .csv (index 0)
             }
+            //If duplicate mode is enabled, print out the list of journalists and/or photos that was not added due to duplicate primary keys.
             if (duplicate) {
                 System.out.println(duplicatePrimaryKey);
             }
@@ -89,6 +94,7 @@ public class Main {
         }
  
     }
+    //Checks if a journalist already exists by executing a query and examining the result set.
     public static boolean reporterExists(String cpr, Connection connection) {
         try {
             Statement statement = connection.createStatement();
@@ -98,13 +104,12 @@ public class Main {
             if (resultSet.next()) {
                 return false;
             }
-            return true;
-
         }
         catch (Exception e) { e.printStackTrace();}
-        return false;
+        return true;
     }
 
+    //Checks if a photo exists by executing a query and examining the result set.
     public static boolean photoExists(String title, Connection connection) {
         try {
             Statement statement = connection.createStatement();
@@ -114,11 +119,9 @@ public class Main {
             if (resultSet.next()) {
                 return false;
             }
-            return true;
-
         }
         catch (Exception e) { e.printStackTrace();}
-        return false;
+        return true;
     }
 
 
