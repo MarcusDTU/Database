@@ -47,7 +47,7 @@ public class Main {
             int index = 0; //Used to track rows within the .csv. We use index 0.
             for(PhotoAndReporter photoAndReporter: photosAndReporters){
                 //Check if the reporter (journalist) already exists before inserting it into Journalist.
-                if(reporterExists(photoAndReporter.getReporter().getCPR(), connection)) {
+                if(!reporterExists(photoAndReporter.getReporter().getCPR(), connection)) {
                     //Prepared statement for journalist
                     PreparedStatement statementReporter = connection.prepareStatement("Insert Journalist VALUES (?,?,?,?,?,?,?,?,?,?,?)");
                     statementReporter.setString(1, photoAndReporter.getReporter().getCPR());
@@ -68,7 +68,7 @@ public class Main {
                     duplicatePrimaryKey = duplicatePrimaryKey + "\nRow " + index + " journalist exists"; //Output at the end of the program, if duplicate mode is enabled.
                 }
                 //Check if photo title already exists before inserting it into photo.
-                if (photoExists(photoAndReporter.getPhoto().getTitle(), connection)) {
+                if (!photoExists(photoAndReporter.getPhoto().getTitle(), connection)) {
                     //Prepared statement for photo
                     PreparedStatement statementPhoto = connection.prepareStatement("Insert Photo VALUES (?,?,?)");
                     statementPhoto.setString(1, photoAndReporter.getPhoto().getTitle());
@@ -102,11 +102,11 @@ public class Main {
             reporterExists.setString(1, cpr);
             ResultSet resultSet = reporterExists.executeQuery();
             if (resultSet.next()) {
-                return false;
+                return true;
             }
         }
         catch (Exception e) { e.printStackTrace();}
-        return true;
+        return false;
     }
 
     //Checks if a photo exists by executing a query and examining the result set.
@@ -117,11 +117,11 @@ public class Main {
             reporterExists.setString(1, title);
             ResultSet resultSet = reporterExists.executeQuery();
             if (resultSet.next()) {
-                return false;
+                return true;
             }
         }
         catch (Exception e) { e.printStackTrace();}
-        return true;
+        return false;
     }
 
 
