@@ -18,31 +18,46 @@ public class Main {
             Connection connection = DriverManager.getConnection(url, username, password);
             PhotosAndReportersLoader loader = new PhotosAndReportersLoader();
             List<PhotoAndReporter> photosAndReporters = loader.loadPhotosAndReporters(args[0]);
+            String duplicatePrimaryKey = "The following rows contained duplicate primary keys: ";
+            Boolean duplicate = false;
+            int index = 0;
             for(PhotoAndReporter photoAndReporter: photosAndReporters){
-
-                //Prepared statement for journalist
-                PreparedStatement statementReporter = connection.prepareStatement("Insert Journalist VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-                statementReporter.setString(1, photoAndReporter.getReporter().getCPR());
-                statementReporter.setString(2, photoAndReporter.getReporter().getFirstName());
-                statementReporter.setString(3, photoAndReporter.getReporter().getMiddleName());
-                statementReporter.setString(4, photoAndReporter.getReporter().getLastName());
-                statementReporter.setString(5, photoAndReporter.getReporter().getStreetName());
-                statementReporter.setInt(6, photoAndReporter.getReporter().getCivicNumber());
-                statementReporter.setString(7, photoAndReporter.getReporter().getCity());
-                statementReporter.setString(8, photoAndReporter.getReporter().getZIPCode());
-                statementReporter.setString(9,photoAndReporter.getReporter().getWorkPhoneNum());
-                statementReporter.setString(10,photoAndReporter.getReporter().getPrivatePhoneNum());
-                statementReporter.setString(11,photoAndReporter.getReporter().getEmail());
-
-                //Prepared statement for photo
-                PreparedStatement statementPhoto = connection.prepareStatement("Insert Photo VALUES (?,?,?)");
-                statementPhoto.setString(1, photoAndReporter.getPhoto().getTitle());
-                statementPhoto.setDate(2, new java.sql.Date(photoAndReporter.getPhoto().getDate().getTime()));
-                statementPhoto.setString(3,photoAndReporter.getPhoto().getCprNo());
-
-                //Execute both prepared statements
-                statementReporter.execute();
-                statementPhoto.execute();
+                if(reporterExists(photoAndReporter.getReporter().getCPR(), connection)) {
+                    //Prepared statement for journalist
+                    PreparedStatement statementReporter = connection.prepareStatement("Insert Journalist VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+                    statementReporter.setString(1, photoAndReporter.getReporter().getCPR());
+                    statementReporter.setString(2, photoAndReporter.getReporter().getFirstName());
+                    statementReporter.setString(3, photoAndReporter.getReporter().getMiddleName());
+                    statementReporter.setString(4, photoAndReporter.getReporter().getLastName());
+                    statementReporter.setString(5, photoAndReporter.getReporter().getStreetName());
+                    statementReporter.setInt(6, photoAndReporter.getReporter().getCivicNumber());
+                    statementReporter.setString(7, photoAndReporter.getReporter().getCity());
+                    statementReporter.setString(8, photoAndReporter.getReporter().getZIPCode());
+                    statementReporter.setString(9, photoAndReporter.getReporter().getWorkPhoneNum());
+                    statementReporter.setString(10, photoAndReporter.getReporter().getPrivatePhoneNum());
+                    statementReporter.setString(11, photoAndReporter.getReporter().getEmail());
+                    statementReporter.execute();
+                }
+                else {
+                    duplicate = true;
+                    duplicatePrimaryKey = duplicatePrimaryKey + "\nRow " + index + " journalist exists";
+                }
+                if (photoExists(photoAndReporter.getPhoto().getTitle(), connection)) {
+                    //Prepared statement for photo
+                    PreparedStatement statementPhoto = connection.prepareStatement("Insert Photo VALUES (?,?,?)");
+                    statementPhoto.setString(1, photoAndReporter.getPhoto().getTitle());
+                    statementPhoto.setDate(2, new java.sql.Date(photoAndReporter.getPhoto().getDate().getTime()));
+                    statementPhoto.setString(3, photoAndReporter.getPhoto().getCprNo());
+                    statementPhoto.execute();
+                }
+                else {
+                    duplicate = true;
+                    duplicatePrimaryKey = duplicatePrimaryKey + "\nRow " + index + " photo title exists";
+                }
+                index++;
+            }
+            if (duplicate) {
+                System.out.println(duplicatePrimaryKey);
             }
             connection.close();
             
@@ -51,6 +66,37 @@ public class Main {
             e.printStackTrace();
         }
  
+    }
+    public static boolean reporterExists(String cpr, Connection connection) {
+        try {
+            Statement statement = connection.createStatement();
+            PreparedStatement reporterExists = connection.prepareStatement("SELECT * FROM Journalist WHERE CPR_No = ?");
+            reporterExists.setString(1, cpr);
+            ResultSet resultSet = reporterExists.executeQuery();
+            if (resultSet.next()) {
+                return false;
+            }
+            return true;
+
+        }
+        catch (Exception e) { e.printStackTrace();}
+        return false;
+    }
+
+    public static boolean photoExists(String title, Connection connection) {
+        try {
+            Statement statement = connection.createStatement();
+            PreparedStatement reporterExists = connection.prepareStatement("SELECT * FROM Photo WHERE Photo_Title = ?");
+            reporterExists.setString(1, title);
+            ResultSet resultSet = reporterExists.executeQuery();
+            if (resultSet.next()) {
+                return false;
+            }
+            return true;
+
+        }
+        catch (Exception e) { e.printStackTrace();}
+        return false;
     }
 
 
